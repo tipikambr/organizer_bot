@@ -10,10 +10,12 @@
 
     <properties>
         <telegrambots.version>4.0.1</telegrambots.version>
+        <maven.compiler.source>14</maven.compiler.source>
+        <maven.compiler.target>14</maven.compiler.target>
     </properties>
 
-
     <dependencies>
+        <!--telegram libraries-->
         <dependency>
             <groupId>org.telegram</groupId>
             <artifactId>telegrambots</artifactId>
@@ -24,6 +26,14 @@
             <artifactId>telegrambotsextensions</artifactId>
             <version>${telegrambots.version}</version>
         </dependency>
+        <!--library for connecting to mail-->
+        <dependency>
+            <groupId>javax.mail</groupId>
+            <artifactId>mail</artifactId>
+            <version>1.4.7</version>
+        </dependency>
+
+
 
     </dependencies>
 
