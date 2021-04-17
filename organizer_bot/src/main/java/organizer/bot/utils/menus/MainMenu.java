@@ -1,13 +1,10 @@
 package organizer.bot.utils.menus;
 
-import com.google.inject.internal.asm.$Label;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.ReplyKeyboardMarkup;
-import org.telegram.telegrambots.meta.api.objects.replykeyboard.ReplyKeyboardRemove;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.KeyboardButton;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.KeyboardRow;
-import organizer.bot.utils.Commands;
-import organizer.bot.utils.Language;
-import organizer.data.base.connection.utils.User;
+import organizer.bot.utils.constants.Commands;
+import organizer.bot.utils.constants.Language;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,14 +18,18 @@ public class MainMenu extends MenuPattern {
     ///////////////////////////////////////////////////////////////
 
     private static final String NEW_USER_RU = "Добро пожаловать, ";
-    private static final String OLD_USER_RU = "Добро пожаловать в органайзер на русском языке! ^_^";
+    private static final String OLD_USER_RU = "Добро пожаловать в органайзер! ^_^";
     private static final String NONE_USER_RU = "Извините, бот в данный момент не работает(";
 
-    private static final String BACK_TO_MAIN_MENU_MESSAGE_RU = "И снова здравствуте в главном меню";
+    private static final String BACK_TO_MAIN_MENU_MESSAGE_RU = "С возвращением в меню";
 
 
-    private static final String INFO_MESSAGE_RU = "Это информационное сообщение. Его пока нет, но оно будет :)\n" +
-            "Когда-нибудь...";
+    private static final String INFO_MESSAGE_RU = "Данный бот вам поможет:\n" +
+            "* не забыть про важные дела\n" +
+            "* разбудить, как делает это ваш ненавистный будильник\n" +
+            "* вести списки дел, покупок или еще что-то подобное с друзьями или свой собственный\n" +
+            "* вовремя узнать о пришедшем сообщении на почту\n" +
+            "Надеюсь, он будет полезен ;)";
 
     public static String getNewUser(int language, long chat_id, String name){
         switch (language){
@@ -94,6 +95,8 @@ public class MainMenu extends MenuPattern {
                 new KeyboardButton(Commands.infoCommandRU),
                 new KeyboardButton(Commands.mailSettingCommandRU),
                 new KeyboardButton(Commands.listSettingCommandRU),
+                new KeyboardButton(Commands.taskSettingCommandRU),
+                new KeyboardButton(Commands.alarmSettingCommandRU),
                 new KeyboardButton(Commands.soundCommandRU),
                 new KeyboardButton(Commands.languageCommandRU)};
 

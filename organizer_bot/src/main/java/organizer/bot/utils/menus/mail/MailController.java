@@ -3,8 +3,8 @@ package organizer.bot.utils.menus.mail;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.ReplyKeyboardMarkup;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.KeyboardButton;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.KeyboardRow;
-import organizer.bot.utils.Commands;
-import organizer.bot.utils.Language;
+import organizer.bot.utils.constants.Commands;
+import organizer.bot.utils.constants.Language;
 import organizer.bot.utils.menus.MenuPattern;
 
 import java.util.ArrayList;

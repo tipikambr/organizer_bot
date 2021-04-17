@@ -1,8 +1,9 @@
 create table data._user 
 (
 	user_id text primary key,
-	telegram_id bigint not null,
-	enable_notification boolean not null
+	telegram_id bigint not null UNIQUE,
+	enable_notification boolean not null,
+	password int
 );
 
 create table data._message
@@ -19,7 +20,7 @@ create table data._message
 
 create table data._mail
 (
-	user_id text references data._user (user_id) on delete cascade,
+	user_id bigint references data._user (telegram_id) on delete cascade,
 	mail_id serial primary key,
 	login text,
 	password text
@@ -39,7 +40,6 @@ create table data._task
 	task_id bigint,
 	person_task text not null,
 	name_task text not null,
-	description text,
 	start_time timestamp not null,
 	end_time timestamp not null,
 	minute_period integer,
@@ -50,19 +50,19 @@ create table data._task
 create table data.list (
 	list_id serial primary key,
 	list_description text not null,
-	owner_id text references data._user(user_id) on delete cascade
+	owner_id bigint references data._user(telegram_id) on delete cascade
 );
 
 create unique index list_id_index on data.list(list_id); 
 
 create table data.share_list (
 	list_id integer references data.list(list_id) on delete cascade,
-	user_id text references data._user(user_id) on delete cascade,
+	user_id bigint references data._user(telegram_id) on delete cascade,
 	primary key (list_id, user_id)
 );
 
 create table data.list_item (
-	item_id integer,
+	item_id serial,
 	list_id integer,
 	deleted boolean,
 	title text,

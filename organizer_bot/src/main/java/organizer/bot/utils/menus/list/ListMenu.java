@@ -3,8 +3,8 @@ package organizer.bot.utils.menus.list;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.ReplyKeyboardMarkup;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.KeyboardButton;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.KeyboardRow;
-import organizer.bot.utils.Commands;
-import organizer.bot.utils.Language;
+import organizer.bot.utils.constants.Commands;
+import organizer.bot.utils.constants.Language;
 import organizer.bot.utils.menus.MenuPattern;
 
 import java.util.ArrayList;
@@ -43,7 +43,6 @@ public class ListMenu extends MenuPattern {
         KeyboardButton[] btns = {
                 new KeyboardButton(Commands.addListCommandRU),
                 new KeyboardButton(Commands.lookAllListsCommandRU),
-                new KeyboardButton(Commands.soundListsCommandRU),
                 new KeyboardButton(Commands.backCommandRU)};
 
         fillKeyBoard(keyboard, btns);
@@ -59,6 +58,5 @@ public class ListMenu extends MenuPattern {
                 return listMenuRU;
         }
     }
-
 
 }

@@ -1,4 +1,4 @@
-package organizer.bot.utils.menus.mail;
+package organizer.bot.utils.menus.alarm;
 
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.ReplyKeyboardMarkup;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.KeyboardButton;
@@ -10,21 +10,21 @@ import organizer.bot.utils.menus.MenuPattern;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MailMenu extends MenuPattern {
-    private final static ReplyKeyboardMarkup mailMenuRU;
+public class AlarmMenu extends MenuPattern {
+    private final static ReplyKeyboardMarkup alarmMenuRU;
 
     ///////////////////////////////////////////////////////////////
     //                         MESSAGES                          //
     ///////////////////////////////////////////////////////////////
 
-    private final static String MAIL_MENU_INTRO_MESSAGE_RU = "Вы зашли в раздел почтовых ящиков. Что вы хотели сделать?";
+    private final static String ALARM_MENU_INTRO_MESSAGE_RU = "Вы зашли в раздел будильников. Что вы хотели сделать?";
 
-    public static String getMailMenuIntroMessage(int language){
+    public static String getAlarmMenuIntroMessage(int language){
         switch (language){
             case Language.RU:
-                return MAIL_MENU_INTRO_MESSAGE_RU;
+                return ALARM_MENU_INTRO_MESSAGE_RU;
             default:
-                return MAIL_MENU_INTRO_MESSAGE_RU;
+                return ALARM_MENU_INTRO_MESSAGE_RU;
         }
     }
 
@@ -33,8 +33,8 @@ public class MailMenu extends MenuPattern {
     ///////////////////////////////////////////////////////////////
 
     static {
-        mailMenuRU = new ReplyKeyboardMarkup();
-        mailMenuRU
+        alarmMenuRU = new ReplyKeyboardMarkup();
+        alarmMenuRU
                 .setSelective(true)
                 .setResizeKeyboard(true)
                 .setOneTimeKeyboard(true);
@@ -42,21 +42,20 @@ public class MailMenu extends MenuPattern {
         List<KeyboardRow> keyboard = new ArrayList<>();
 
         KeyboardButton[] btns = {
-                new KeyboardButton(Commands.addMailRU),
-                new KeyboardButton(Commands.lookMailsRU),
-//                new KeyboardButton(Commands.soundMailsCommandRU),
+                new KeyboardButton(Commands.addAlarmRU),
+                new KeyboardButton(Commands.lookAlarmRU),
                 new KeyboardButton(Commands.backCommandRU)};
 
         fillKeyBoard(keyboard, btns);
 
-        mailMenuRU.setKeyboard(keyboard);
+        alarmMenuRU.setKeyboard(keyboard);
     }
-    public static ReplyKeyboardMarkup getMailMenu(int language){
+    public static ReplyKeyboardMarkup getAlarmMenu(int language){
         switch (language){
             case Language.RU:
-                return mailMenuRU;
+                return alarmMenuRU;
             default:
-                return mailMenuRU;
+                return alarmMenuRU;
         }
     }
 }

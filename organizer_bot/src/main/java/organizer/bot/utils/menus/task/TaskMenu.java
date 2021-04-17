@@ -1,4 +1,4 @@
-package organizer.bot.utils.menus.list;
+package organizer.bot.utils.menus.task;
 
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.ReplyKeyboardMarkup;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.KeyboardButton;
@@ -10,51 +10,41 @@ import organizer.bot.utils.menus.MenuPattern;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AddingListMenu extends MenuPattern {
-    private final static ReplyKeyboardMarkup menuRU;
+public class TaskMenu extends MenuPattern {
+    private final static ReplyKeyboardMarkup taskMenuRU;
 
     ///////////////////////////////////////////////////////////////
     //                         MESSAGES                          //
     ///////////////////////////////////////////////////////////////
 
-    private final static String ADDING_LIST_INTRO_MESSAGE_RU = "Введите название листа";
-    private final static String ADDING_LIST_SUCCESS_MESSAGE_RU = "Лист был успешно создан";
-    private final static String ADDING_LIST_FAIL_MESSAGE_RU = "Такой лист уже есть";
+    private final static String TASK_MENU_INTRO_MESSAGE_RU = "Вы зашли в раздел задач. Что вы хотели сделать?";
+    private final static String ERROR_MESSAGE_RU = "Произошла ошибка при добавлении задачи";
 
-    public static String getAddingListIntroMessage(int language){
+    public static String getTaskMenuIntroMessage(int language){
         switch (language){
             case Language.RU:
-                return ADDING_LIST_INTRO_MESSAGE_RU;
+                return TASK_MENU_INTRO_MESSAGE_RU;
             default:
-                return ADDING_LIST_INTRO_MESSAGE_RU;
+                return TASK_MENU_INTRO_MESSAGE_RU;
+        }
+    }
+    public static String getErrorMessage(int language){
+        switch (language){
+            case Language.RU:
+                return ERROR_MESSAGE_RU;
+            default:
+                return ERROR_MESSAGE_RU;
         }
     }
 
-    public static String getAddingListSuccessMessage(int language){
-        switch (language){
-            case Language.RU:
-                return ADDING_LIST_SUCCESS_MESSAGE_RU;
-            default:
-                return ADDING_LIST_SUCCESS_MESSAGE_RU;
-        }
-    }
-
-    public static String getAddingListFailMessageRu(int language){
-        switch (language){
-            case Language.RU:
-                return ADDING_LIST_FAIL_MESSAGE_RU;
-            default:
-                return ADDING_LIST_FAIL_MESSAGE_RU;
-        }
-    }
 
     ///////////////////////////////////////////////////////////////
     //                         KEYBOARD                          //
     ///////////////////////////////////////////////////////////////
 
     static {
-        menuRU = new ReplyKeyboardMarkup();
-        menuRU
+        taskMenuRU = new ReplyKeyboardMarkup();
+        taskMenuRU
                 .setSelective(true)
                 .setResizeKeyboard(true)
                 .setOneTimeKeyboard(true);
@@ -62,20 +52,21 @@ public class AddingListMenu extends MenuPattern {
         List<KeyboardRow> keyboard = new ArrayList<>();
 
         KeyboardButton[] btns = {
-                new KeyboardButton(Commands.cancelCommandRU)
-        };
+                new KeyboardButton(Commands.addTasksRU),
+                new KeyboardButton(Commands.lookTasksRU),
+//                new KeyboardButton(Commands.soundMailsCommandRU),
+                new KeyboardButton(Commands.backCommandRU)};
 
         fillKeyBoard(keyboard, btns);
 
-        menuRU.setKeyboard(keyboard);
+        taskMenuRU.setKeyboard(keyboard);
     }
-
-    public static ReplyKeyboardMarkup getMenu(int language){
+    public static ReplyKeyboardMarkup getTaskMenu(int language){
         switch (language){
             case Language.RU:
-                return menuRU;
+                return taskMenuRU;
             default:
-                return menuRU;
+                return taskMenuRU;
         }
     }
 }

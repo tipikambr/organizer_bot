@@ -1,4 +1,4 @@
-package organizer.bot.utils;
+package organizer.bot.utils.constants;
 
 public class Commands {
 
@@ -30,9 +30,27 @@ public class Commands {
 
     public static final String soundSpecificListCommandRU = "Уведомления списка";
 
-    public static final String writeNewNameCommandRU = "Изменить название списка";
-    public static final String shareListForUserCommandRU = "Поделиться списком";
-    public static final String ListUsersCommandRU = "Просмотр людей, с кем поделился";
+    public static final String addItemRU = "Добавить элемент";
+    public static final String shareListRU = "Поделиться списком";
+    public static final String lookSharePersonsRU = "Посмотреть, кому доступен этот список";
+    public static final String removeListRU = "Удалить список";
+
+    public static final String addFilterRU = "Добавить фильтр";
+    public static final String removeMailRU = "Удалить почту";
+
+
+    //ТАСКИ
+    public static final String addTasksRU = "Добавить задачу";
+    public static final String lookTasksRU = "Посмотреть задачи";
+
+    public static final String skipRU = "Пропустить";
+
+
+    //Будильник
+
+    public static final String addAlarmRU = "Добавить будильник";
+    public static final String lookAlarmRU = "Просмотр будильников";
+
 
 
     //ЗАДАЧИ
@@ -41,7 +59,7 @@ public class Commands {
     //ЗВУК
     public static final String soundOnCommandRU = "Включить";
     public static final String soundOffCommandRU = "Выключить";
-    public static final String soundNotChangeCommandRU = "Не изменять";
+    public static final String soundNotChangeCommandRU = "Вернуться";
 
 
     //ЯЗЫКИ
@@ -53,6 +71,8 @@ public class Commands {
     public static final String mailSettingCommandRU = "Настройки почт";
     public static final String listSettingCommandRU = "Настройки списков";
     public static final String languageCommandRU = "Язык";
+    public static final String alarmSettingCommandRU = "Настройки будильников";
+    public static final String taskSettingCommandRU = "Настройки задач";
 
 
 
