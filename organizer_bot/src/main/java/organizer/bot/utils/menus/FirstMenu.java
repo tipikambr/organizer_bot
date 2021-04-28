@@ -21,6 +21,7 @@ public class FirstMenu extends MenuPattern {
     private final static String FIRST_NAME_USER_RU = "Введите ваш логин для бота";
     private final static String FIRST_PASSWORD_USER_RU = "Введите пароль для бота";
     private final static String RETRY_USER_RU = "Данный логин уже занят, попробуйте еще раз :с";
+    private final static String YOU_ALREADY_HAVE_ACCOUNT_RU = "У вас уже есть аккаунт, вспомните его)";
 
     public static String getFirstNameMessage(int language){
         switch (language){
@@ -45,6 +46,14 @@ public class FirstMenu extends MenuPattern {
                 return RETRY_USER_RU;
             default:
                 return RETRY_USER_RU;
+        }
+    }
+    public static String getYouAlreadyHaveAccountMessage(int language){
+        switch (language){
+            case Language.RU:
+                return YOU_ALREADY_HAVE_ACCOUNT_RU;
+            default:
+                return YOU_ALREADY_HAVE_ACCOUNT_RU;
         }
     }
 

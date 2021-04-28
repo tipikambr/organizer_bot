@@ -1,0 +1,22 @@
+version: "3.9"
+services:
+  web:
+    build: ./organizer_bot
+    ports:
+      - 80:80
+    depends_on:
+	- postgres
+  postgres:
+    image: "postgres:13-alpine"
+    volumes:
+	- type: volume
+	  source: postgres_volume
+	  target: /var/lib/postgresql/data
+    ports:
+	- 9873:5432
+    environment:
+	POSTGRES_DB:		organizerdb
+	POSTGRES_USER:		postgres
+	POSTGRES_PASSWORD:	1933420
+volumes:
+    potgres_volume:

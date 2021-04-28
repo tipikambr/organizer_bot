@@ -308,9 +308,14 @@ public class BotOrganizer extends TelegramLongPollingBot {
                         false);
                 break;
             case (Menus.WRITING_PASSWORD):
-                if (User.authUser(chatId, usersNames.get(chatId), message) != 1){
+                if (User.authUser(chatId, usersNames.get(chatId), message) == 0){
                     usersPositionMenu.put(chatId, Menus.WRITING_NAME);
                     sendMessage(chatId, FirstMenu.getRetryMessage(userLang.get(chatId)), false);
+                    break;
+                };
+                if (User.authUser(chatId, usersNames.get(chatId), message) == -1){
+                    usersPositionMenu.put(chatId, Menus.WRITING_NAME);
+                    sendMessage(chatId, FirstMenu.getYouAlreadyHaveAccountMessage(userLang.get(chatId)), false);
                     break;
                 };
                 sendMessage(chatId, MainMenu.getNewUser(userLang.get(chatId), chatId, usersNames.get(chatId)),
@@ -1163,7 +1168,7 @@ public class BotOrganizer extends TelegramLongPollingBot {
                         } catch (TelegramApiException e) {
                             e.printStackTrace();
                         }
-                        sendMessage(chat_id, "Выберете дату", AlarmCalendarMenu.initForAlarm(newDate.getTime(), Language.RU), false);
+                        sendMessage(chat_id, "Выберете дату", TaskCalendarMenu.initForAlarm(newDate.getTime(), Language.RU), false);
                     } else {
                         //Выбрана дата
                         int month = Integer.parseInt(data[0]);

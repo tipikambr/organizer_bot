@@ -122,6 +122,7 @@ public class User {
 
 
         } catch (SQLException throwables) {
+            throwables.printStackTrace();
 //            BotLogger.severe("USER", throwables.getMessage(), throwables);
             return -1;
         }
